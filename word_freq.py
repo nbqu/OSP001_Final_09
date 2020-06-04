@@ -32,6 +32,7 @@ word_list = sorted(d.items(), key=lambda x: x[1], reverse=True)
 for i in word_list:
     words.append(i[0])
     freq.append(i[1])
+    print(i)
 
 e1 = {"url": "http://james.apache.org/", "words": words, "freq": freq}
 idx = 1
