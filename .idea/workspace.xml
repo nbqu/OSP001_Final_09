@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0408f8c0-e649-4bdb-b8b2-4b2f63d99a3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/URLinput.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dd.py" beforeDir="false" afterPath="$PROJECT_DIR$/dd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/word_freq.py" beforeDir="false" afterPath="$PROJECT_DIR$/word_freq.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,7 +40,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.app">
     <configuration name="OSP001_Final_09" type="PythonConfigurationType" factoryName="Python">
       <module name="OSP001_Final_09" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -55,6 +63,33 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OSP001_Final_09" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -66,40 +101,90 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1591268396432</updated>
-      <workItem from="1591268398708" duration="1758000" />
+      <workItem from="1591268398708" duration="4784000" />
+      <workItem from="1591281209901" duration="750000" />
+      <workItem from="1591610117998" duration="73000" />
     </task>
+    <task id="LOCAL-00001" summary="개발명세 추가">
+      <created>1591275119768</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591275119768</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="개발명세 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="개발명세 추가" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="279" y="52" key="CommitChangelistDialog2" timestamp="1591268671786">
+    <state x="274" y="0" key="CommitChangelistDialog2" timestamp="1591610412674">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="279" y="52" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1591268671786" />
+    <state x="274" y="0" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1591610412674" />
+    <state width="503" height="466" key="DebuggerActiveHint" timestamp="1591277629363">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="503" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1591277629363" />
     <state x="144" y="78" key="DiffContextDialog" timestamp="1591268633437">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="144" y="78" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1591268633437" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1591270347376">
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom" timestamp="1591279686217">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591270347376" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1591270347374">
+    <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591279686217" />
+    <state width="1398" height="303" key="GridCell.Tab.0.center" timestamp="1591279686216">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591270347374" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1591270347373">
+    <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591279686216" />
+    <state width="1398" height="303" key="GridCell.Tab.0.left" timestamp="1591279686215">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591270347373" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1591270347375">
+    <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591279686215" />
+    <state width="1398" height="303" key="GridCell.Tab.0.right" timestamp="1591279686216">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591270347375" />
+    <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591279686216" />
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1591279686219">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591279686219" />
+    <state width="1398" height="303" key="GridCell.Tab.1.center" timestamp="1591279686218">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1591279686218" />
+    <state width="1398" height="303" key="GridCell.Tab.1.left" timestamp="1591279686217">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1591279686217" />
+    <state width="1398" height="303" key="GridCell.Tab.1.right" timestamp="1591279686218">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1591279686218" />
+    <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591610387822">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1591610387822" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/word_freq.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OSP001_Final_09$OSP001_Final_09.coverage" NAME="OSP001_Final_09 Coverage Results" MODIFIED="1591268882307" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/OSP001_Final_09$OSP001_Final_09.coverage" NAME="OSP001_Final_09 Coverage Results" MODIFIED="1591277355545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/OSP001_Final_09$dd.coverage" NAME="dd Coverage Results" MODIFIED="1591279183171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
