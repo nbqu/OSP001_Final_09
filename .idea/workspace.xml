@@ -27,9 +27,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0408f8c0-e649-4bdb-b8b2-4b2f63d99a3b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/111.txt" beforeDir="false" afterPath="$PROJECT_DIR$/111.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +43,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="seunggyu" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -184,8 +181,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.testfile" />
-        <item itemvalue="Python.app" />
         <item itemvalue="Python.test_seunggyu" />
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.testfile" />
+        <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
   </component>
@@ -205,6 +204,7 @@
       <workItem from="1591702128152" duration="4638000" />
       <workItem from="1591854042264" duration="1347000" />
       <workItem from="1591862578168" duration="2309000" />
+      <workItem from="1591865864558" duration="248000" />
     </task>
     <task id="LOCAL-00001" summary="개발명세 추가">
       <created>1591275119768</created>
@@ -273,10 +273,10 @@
       <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="426" y="35" key="#test_seunggyu/0.23.1440.814@0.23.1440.814" timestamp="1591844073924" />
-    <state x="354" y="30" key="CommitChangelistDialog2" timestamp="1591864986769">
+    <state x="354" y="30" key="CommitChangelistDialog2" timestamp="1591865011965">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="354" y="30" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1591864986769" />
+    <state x="354" y="30" key="CommitChangelistDialog2/0.0.1440.900@0.0.1440.900" timestamp="1591865011965" />
     <state width="503" height="466" key="DebuggerActiveHint" timestamp="1591277629363">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
