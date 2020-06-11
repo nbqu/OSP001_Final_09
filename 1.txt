@@ -1,2 +1,2 @@
-http://dubbo.apache.org/en-us/
-http://isis.apache.org/
+http://druid.apache.org/
+http://empire-db.apache.org/

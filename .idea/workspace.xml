@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:seunggyu" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0408f8c0-e649-4bdb-b8b2-4b2f63d99a3b" name="Default Changelist" comment="">
+    <list default="true" id="0408f8c0-e649-4bdb-b8b2-4b2f63d99a3b" name="Default Changelist" comment="테스트">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,15 +43,20 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="seunggyu" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cquMU5AzS777XCaRYEY7ybjWvr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -37,6 +66,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected="Flask server.Flask (app.py)">
     <configuration name="OSP001_Final_09" type="PythonConfigurationType" factoryName="Python">
@@ -83,6 +113,50 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test_seunggyu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OSP001_Final_09" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_seunggyu.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testfile" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="OSP001_Final_09" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/testfile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Flask (app.py)" type="Python.FlaskServer" nameIsGenerated="true">
       <option name="flaskDebug" value="true" />
       <module name="OSP001_Final_09" />
@@ -103,10 +177,14 @@
       <item itemvalue="Flask server.Flask (app.py)" />
       <item itemvalue="Python.OSP001_Final_09" />
       <item itemvalue="Python.app" />
+      <item itemvalue="Python.test_seunggyu" />
+      <item itemvalue="Python.testfile" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.testfile" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.test_seunggyu" />
       </list>
     </recent_temporary>
   </component>
@@ -124,6 +202,7 @@
       <workItem from="1591281209901" duration="750000" />
       <workItem from="1591610117998" duration="4512000" />
       <workItem from="1591702128152" duration="4638000" />
+      <workItem from="1591854042264" duration="1347000" />
     </task>
     <task id="LOCAL-00001" summary="개발명세 추가">
       <created>1591275119768</created>
@@ -132,21 +211,66 @@
       <option name="project" value="LOCAL" />
       <updated>1591275119768</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="테스트">
+      <created>1591851124235</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1591851124235</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="seunggyu" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="개발명세 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="개발명세 추가" />
+    <MESSAGE value="테스트" />
+    <option name="LAST_COMMIT_MESSAGE" value="테스트" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="112" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591611367220">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="426" y="35" key="#OSP001_Final_09" timestamp="1591843778403">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="426" y="35" key="#OSP001_Final_09/0.23.1440.821@0.23.1440.821" timestamp="1591843778403" />
+    <state x="184" y="124" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591851486738">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="184" y="112" width="1071" height="677" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1591611367220" />
+    <state x="184" y="124" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.814@0.23.1440.814" timestamp="1591851486738" />
+    <state x="476" y="228" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1591843618229">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="476" y="228" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.821@0.23.1440.821" timestamp="1591843618229" />
+    <state x="426" y="35" key="#test_seunggyu" timestamp="1591844073924">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="426" y="35" key="#test_seunggyu/0.23.1440.814@0.23.1440.814" timestamp="1591844073924" />
     <state x="274" y="0" key="CommitChangelistDialog2" timestamp="1591610412674">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -159,22 +283,30 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="144" y="78" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1591268633437" />
-    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1591707649967">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1254" height="195" key="GridCell.Tab.0.bottom" timestamp="1591854753119">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591707649967" />
-    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1591707649965">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1254" height="195" key="GridCell.Tab.0.bottom/0.23.1440.814@0.23.1440.814" timestamp="1591854753119" />
+    <state width="1275" height="195" key="GridCell.Tab.0.bottom/0.23.1440.816@0.23.1440.816" timestamp="1591844361649" />
+    <state width="1254" height="195" key="GridCell.Tab.0.center" timestamp="1591854753119">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591707649965" />
-    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1591707649965">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1254" height="195" key="GridCell.Tab.0.center/0.23.1440.814@0.23.1440.814" timestamp="1591854753119" />
+    <state width="1275" height="195" key="GridCell.Tab.0.center/0.23.1440.816@0.23.1440.816" timestamp="1591844361648" />
+    <state width="1254" height="195" key="GridCell.Tab.0.left" timestamp="1591854753118">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591707649965" />
-    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1591707649966">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state width="1254" height="195" key="GridCell.Tab.0.left/0.23.1440.814@0.23.1440.814" timestamp="1591854753118" />
+    <state width="1275" height="195" key="GridCell.Tab.0.left/0.23.1440.816@0.23.1440.816" timestamp="1591844361647" />
+    <state width="1254" height="195" key="GridCell.Tab.0.right" timestamp="1591854753119">
+      <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591707649966" />
+    <state width="1254" height="195" key="GridCell.Tab.0.right/0.23.1440.814@0.23.1440.814" timestamp="1591854753119" />
+    <state width="1275" height="195" key="GridCell.Tab.0.right/0.23.1440.816@0.23.1440.816" timestamp="1591844361649" />
     <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1591707375031">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -195,10 +327,20 @@
     </state>
     <state width="1398" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1591707375030" />
     <state width="1398" height="303" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1591706948864" />
-    <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591610387822">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="471" y="129" key="RollbackChangesDialog" timestamp="1591854381845">
+      <screen x="0" y="23" width="1440" height="814" />
+    </state>
+    <state x="471" y="129" key="RollbackChangesDialog/0.23.1440.814@0.23.1440.814" timestamp="1591854381845" />
+    <state x="340" y="158" key="Vcs.Push.Dialog.v2" timestamp="1591851267259">
+      <screen x="0" y="23" width="1440" height="816" />
+    </state>
+    <state x="340" y="158" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1591851267259" />
+    <state x="340" y="159" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1591851142052" />
+    <state x="503" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1591843651034">
+      <screen x="0" y="23" width="1440" height="821" />
     </state>
     <state x="503" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1591610387822" />
+    <state x="503" y="364" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.821@0.23.1440.821" timestamp="1591843651034" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -213,11 +355,6 @@
           <line>8</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>33</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -227,9 +364,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/OSP001_Final_09$OSP001_Final_09.coverage" NAME="OSP001_Final_09 Coverage Results" MODIFIED="1591277355545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/OSP001_Final_09$dd.coverage" NAME="dd Coverage Results" MODIFIED="1591279183171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/OSP001_Final_09$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1591707649956" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/OSP001_Final_09$app.coverage" NAME="app Coverage Results" MODIFIED="1591611310167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OSP001_Final_09$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1591854753106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
