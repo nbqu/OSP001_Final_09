@@ -1,3 +1,6 @@
 http://druid.apache.org/
 http://empire-db.apache.org/
 Hello
+https://accumulo.apache.org/
+http://hawq.apache.org/
+http://reef.apache.org/
