@@ -28,17 +28,22 @@ def allowed_file(filename):
 def crawling(url):
     html = None
     try:
-        url = requests.get(url)
-        html = BeautifulSoup(url.content, 'html.parser')
-    except (requests.exceptions.MissingSchema, requests.exceptions.InvalidURL):
+        url = requests.get(url) # requests.get을 사용해서 원하는 url 웹 페이지에 텍스트를 가져옴.
+        html = BeautifulSoup(url.content, 'html.parser') # BeautifulSoup으로 html소스를 python객체로 변환하기
+    except (requests.exceptions.MissingSchema, requests.exceptions.InvalidURL): # 예외처리
         pass
-    return html
+    return html # html 객체를 리턴해줌
 
 
+# elasticsearch 에 넣는 함수.
+# content[0] 에는 크롤링 성공한 url주소 , content[1] 에는 beautifulsoup으로 크롤링한 객체
 def put_in_es(content, idx):
+
+
     d = dict()
     getnum = re.compile('\d+')
     crawled = content[1].find('body').get_text()
+
     for i in re.split('\W+', crawled):
         i = i.lower().rstrip()
         if getnum.match(i):
@@ -58,7 +63,7 @@ def put_in_es(content, idx):
         words.append(i[0])
         freq.append(i[1])
 
-    e1 = {"url": content[0], "words": words, "freq": freq}
+    e1 = {"url": content[0], "url_name": content[2], "words": words, "freq": freq}
     es.index(index='web', doc_type='word', id=idx, body=e1)
 
 
@@ -70,11 +75,11 @@ def index():
 @app.route('/fileUpload', methods=['GET', 'POST'])
 def url_in():
     url_list = []  # url_list 리스트를 생성. 여기에 url주소들을 저장.
-    crawled_success = []
-    crawled_fail = []
+    crawled_success = [] # crawled_success 된 url 주소들을 저장하는 리스트.
+    crawled_fail = [] # crawled_fail 된 url 주소들을 저장하는 리스트.
     db_top = 1
     msg = "성공"
-    if request.method == 'POST':
+    if request.method == 'POST': # request 방식이 POST일 경우.
         if 'file' not in request.files: # 만약 file이 없으면.
             flash('No file part')
             return redirect(request.url)
@@ -87,24 +92,31 @@ def url_in():
         if url_file:
             url_file.save(secure_filename(url_file.filename))
             try:
-                with open(url_file.filename, 'r') as f:
+                with open(url_file.filename, 'r') as f: # with문을 사용하면 with 블록을 벗어나는 순간 열린 파일 객체 f가 자동으로 close
                     line = None
-                    for line in f:
+                    for line in f: # f에 들어있는 주소를 하나씩 line으로 받는다.
                         url_list.append(line.rstrip()) # url_list 리스트에 각각의 url주소들을 분리하여 저장.
                 f.close()
             except FileNotFoundError as e:
                 print(e)
 
         for i in url_list:  # 크롤링 성공/실패 판별 -> 성공하면
-            tmp = crawling(i)
-            if tmp is None:
+            tmp = crawling(i) # i에는 url 주소가 들어가 있음. crawling 함수 호출
+            if tmp is None: # tmp가 비어있으면 ( 크롤링 실패했으면 )
                 msg = "크롤링 실패 : "
-                crawled_fail.append(i)
-            else:
-                crawled_success.append([i, tmp])
+                crawled_fail.append(i) # 크롤링 실패한 주소들을 crawled_fail리스트에 저장.
+            else: # (크롤링 성공했으면)
+                url_split = re.split('\W+', i)  # url 주소를 split한다. url_split리스트에 저장.
 
-        for content in crawled_success:
-            put_in_es(content, db_top)
+                if "www" in url_split:  # url_split 리스트에 "www"가 있다면
+                    url_name = url_split[2]
+                else:
+                    url_name = url_split[1]
+                crawled_success.append([i, tmp, url_name]) # crawled_success 리스트에 [i,tmp]리스트를 추가.롤
+                # i는 url주소, tmp는 beautifulsoup에서 크롤링한 객체
+
+        for content in crawled_success: # crawled_success 리스트에서 하나씩 content로 받아서 put_in_es함수로 넘기기
+            put_in_es(content, db_top) # 처음 dp_top값은 1
             db_top += 1
 
         return render_template('home.html', result_msg=msg+str(crawled_fail))
