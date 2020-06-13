@@ -37,9 +37,17 @@ def crawling(url):
 
 # elasticsearch 에 넣는 함수.
 # content[0] 에는 크롤링 성공한 url주소 , content[1] 에는 beautifulsoup으로 크롤링한 객체
+
+
+def check_duplicate(url_name):
+    tmp = es.search(index='web', body={'query': {'match': {'url_name': url_name}}}, ignore=404)
+    if 'error' not in tmp:
+        for s in tmp['hits']['hits']:
+            if url_name == s['_source']['url_name']:
+                return url_name
+
+
 def put_in_es(content, idx):
-
-
     d = dict()
     getnum = re.compile('\d+')
     crawled = content[1].find('body').get_text()
@@ -69,14 +77,17 @@ def put_in_es(content, idx):
 
 @app.route('/')
 def index():
+
     return render_template('home.html')  # 해당 html 파일로 이동하여 html페이지를 보여준다.
 
 
 @app.route('/fileUpload', methods=['GET', 'POST'])
 def url_in():
+    es.indices.delete(index='web', ignore=[400, 404])
     url_list = []  # url_list 리스트를 생성. 여기에 url주소들을 저장.
     crawled_success = [] # crawled_success 된 url 주소들을 저장하는 리스트.
     crawled_fail = [] # crawled_fail 된 url 주소들을 저장하는 리스트.
+    crawled_duplicated = set() # 중복된 주소 저장하는 set
     db_top = 1
     msg = "성공"
     if request.method == 'POST': # request 방식이 POST일 경우.
@@ -101,24 +112,26 @@ def url_in():
                 print(e)
 
         for i in url_list:  # 크롤링 성공/실패 판별 -> 성공하면
-            tmp = crawling(i) # i에는 url 주소가 들어가 있음. crawling 함수 호출
-            if tmp is None: # tmp가 비어있으면 ( 크롤링 실패했으면 )
+            tmp = crawling(i)  # i에는 url 주소가 들어가 있음. crawling 함수 호출
+            if tmp is None:  # tmp가 비어있으면 ( 크롤링 실패했으면 )
                 msg = "크롤링 실패 : "
-                crawled_fail.append(i) # 크롤링 실패한 주소들을 crawled_fail리스트에 저장.
-            else: # (크롤링 성공했으면)
-                url_split = re.split('\W+', i)  # url 주소를 split한다. url_split리스트에 저장.
+                crawled_fail.append(i)
+                continue # 크롤링 실패한 주소들을 crawled_fail리스트에 저장.
+            url_split = re.split('\W+', i)  # url 주소를 split한다. url_split리스트에 저장.
+            if "www" in url_split:  # url_split 리스트에 "www"가 있다면
+                url_name = url_split[2]
+            else:
+                url_name = url_split[1]
+            flag = check_duplicate(url_name)
+            if flag is not None:
+                crawled_duplicated.add(i)
+                continue
 
-                if "www" in url_split:  # url_split 리스트에 "www"가 있다면
-                    url_name = url_split[2]
-                else:
-                    url_name = url_split[1]
+            else: # (크롤링 성공했으면)
+
                 crawled_success.append([i, tmp, url_name]) # crawled_success 리스트에 [i,tmp]리스트를 추가.롤
                 # i는 url주소, tmp는 beautifulsoup에서 크롤링한 객체
+                put_in_es(crawled_success[-1], db_top) # 처음 dp_top값은 1
+                db_top += 1
 
-        for content in crawled_success: # crawled_success 리스트에서 하나씩 content로 받아서 put_in_es함수로 넘기기
-            put_in_es(content, db_top) # 처음 dp_top값은 1
-            db_top += 1
-
-        return render_template('home.html', result_msg=msg+str(crawled_fail))
-
-    # TODO : 중복된 url 찾아서 에러메세지 출력
+        return render_template('home.html', result_success=[i[0] for i in crawled_success], result_fail=crawled_fail, result_duplicated=crawled_duplicated)
