@@ -38,18 +38,11 @@ def crawling(url):
 # elasticsearch 에 넣는 함수.
 # content[0] 에는 크롤링 성공한 url주소 , content[1] 에는 beautifulsoup으로 크롤링한 객체
 def put_in_es(content, idx):
+
+
     d = dict()
     getnum = re.compile('\d+')
     crawled = content[1].find('body').get_text()
-
-    # 입력코드 ( 곽승규 )
-    url_split = re.split('\W+', content[0]) # url 주소를 split한다. url_split리스트에 저장.
-
-    if "www" in url_split: # url_split 리스트에 "www"가 있다면
-        url_name = url_split[2]
-    else:
-        url_name = url_split[1]
-
 
     for i in re.split('\W+', crawled):
         i = i.lower().rstrip()
@@ -70,9 +63,7 @@ def put_in_es(content, idx):
         words.append(i[0])
         freq.append(i[1])
 
-
-
-    e1 = {"url": content[0],"url_name": url_name , "words": words, "freq": freq}
+    e1 = {"url": content[0], "url_name": content[2], "words": words, "freq": freq}
     es.index(index='web', doc_type='word', id=idx, body=e1)
 
 
@@ -115,7 +106,13 @@ def url_in():
                 msg = "크롤링 실패 : "
                 crawled_fail.append(i) # 크롤링 실패한 주소들을 crawled_fail리스트에 저장.
             else: # (크롤링 성공했으면)
-                crawled_success.append([i, tmp]) # crawled_success 리스트에 [i,tmp]리스트를 추가.롤
+                url_split = re.split('\W+', i)  # url 주소를 split한다. url_split리스트에 저장.
+
+                if "www" in url_split:  # url_split 리스트에 "www"가 있다면
+                    url_name = url_split[2]
+                else:
+                    url_name = url_split[1]
+                crawled_success.append([i, tmp, url_name]) # crawled_success 리스트에 [i,tmp]리스트를 추가.롤
                 # i는 url주소, tmp는 beautifulsoup에서 크롤링한 객체
 
         for content in crawled_success: # crawled_success 리스트에서 하나씩 content로 받아서 put_in_es함수로 넘기기
