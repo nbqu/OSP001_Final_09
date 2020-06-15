@@ -55,6 +55,7 @@ def put_in_es(content, idx):
     for i in re.split('\W+', crawled):
         i = i.lower().rstrip()
         if getnum.match(i):
+            print(i)
             continue
         if i not in d:
             d.setdefault(i, 1)
