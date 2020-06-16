@@ -35,23 +35,22 @@ def crawling(url):
     return html # html 객체를 리턴해줌
 
 
-# elasticsearch 에 넣는 함수.
-# content[0] 에는 크롤링 성공한 url주소 , content[1] 에는 beautifulsoup으로 크롤링한 객체
-
-
-def check_duplicate(url_name):
+def check_duplicate(url_name): # url_name이 겹치는 지 확인해 주는 함수.
+    # query를 이용해서 elasticsearch에 저장된 것들 중에 url_name과 같은 것들이 있는지 확인한다.
     tmp = es.search(index='web', body={'query': {'match': {'url_name': url_name}}}, ignore=404)
-    if 'error' not in tmp:
+    if 'error' not in tmp: # tmp에 error가 없으면.
         for s in tmp['hits']['hits']:
-            if url_name == s['_source']['url_name']:
-                return url_name
+            if url_name == s['_source']['url_name']: # url_name과 s[_source][url_name]이 같다면
+                return url_name # url_name을 리턴. 즉, 중복된 것이 있으면 url_name을 리턴함. 중복이 없으면 아무것도 리턴 안함.
 
-
+# elasticsearch 에 넣는 함수.
+# content[0] 에는 크롤링 성공한 url주소 , content[1] 에는 beautifulsoup으로 크롤링한 객체, content[2]에는 url_name
 def put_in_es(content, idx):
-    d = dict()
+    d = dict() # d 라는 dictionary 생성
     getnum = re.compile('\d+')
-    crawled = content[1].find('body').get_text()
+    crawled = content[1].find('body').get_text() # body태그에 있는 것들을 crwled에 저장.
 
+    # 특수문자를 제거하고 split함
     for i in re.split('\W+', crawled):
         i = i.lower().rstrip()
         if getnum.match(i):
@@ -67,13 +66,13 @@ def put_in_es(content, idx):
     words = []
     freq = []
 
-    word_list = sorted(d.items(), key=lambda x: x[1], reverse=True)
+    word_list = sorted(d.items(), key=lambda x: x[1], reverse=True) # word_list에 dictionary의 값을 기준으로 큰것부터 차례로 정렬
     for i in word_list:
-        words.append(i[0])
-        freq.append(i[1])
+        words.append(i[0]) # 단어들을 words 리스트에 저장.
+        freq.append(i[1]) # 빈도수들을 freq 리스트에 저장.
 
     e1 = {"url": content[0], "url_name": content[2], "words": words, "freq": freq}
-    es.index(index='web', doc_type='word', id=idx, body=e1)
+    es.index(index='web', doc_type='word', id=idx, body=e1) # index = web, type = word, id = 1부터 2,3... elasticsearch에 저장.
 
 
 @app.route('/')
@@ -118,21 +117,23 @@ def url_in():
                 msg = "크롤링 실패 : "
                 crawled_fail.append(i)
                 continue # 크롤링 실패한 주소들을 crawled_fail리스트에 저장.
+
             url_split = re.split('\W+', i)  # url 주소를 split한다. url_split리스트에 저장.
-            if "www" in url_split:  # url_split 리스트에 "www"가 있다면
-                url_name = url_split[2]
-            else:
-                url_name = url_split[1]
-            flag = check_duplicate(url_name)
-            if flag is not None:
-                crawled_duplicated.add(i)
+            if "www" in url_split:  # url_split 리스트에 "www"가 있다면 ex) https://www.abc.com
+                url_name = url_split[2] # url_split 리스트에서 인덱스가 2인 abc 를 url_name에 넣는다.
+            else: # url_split 리스트에 "www"가 없다면 ex) https://def.apache.org/
+                url_name = url_split[1] # url_split 리스트에서 인덱스가 1인 def 를 url_name에 넣는다.
+
+            flag = check_duplicate(url_name) # check_duplicate함수를 호출하여 url_name이 겹치는지 확인한다.
+            if flag is not None: # flag가 url_name을 리턴 받았으면(즉, 중복된 것이 있으면) (중복된 것이 없으면 flag는 None값이다.)
+                crawled_duplicated.add(i) # crawled_duplicated set()에 i를 추가. 여기서 i는 url 주소가 들어가 있음.
                 continue
 
             else: # (크롤링 성공했으면)
 
-                crawled_success.append([i, tmp, url_name]) # crawled_success 리스트에 [i,tmp]리스트를 추가.롤
+                crawled_success.append([i, tmp, url_name]) # crawled_success 리스트에 [i,tmp, url_name]리스트를 추가.
                 # i는 url주소, tmp는 beautifulsoup에서 크롤링한 객체
-                put_in_es(crawled_success[-1], db_top) # 처음 dp_top값은 1
+                put_in_es(crawled_success[-1], db_top) # 처음 dp_top값은 1 , 파이썬에서 -1은 맨 마지막 값에 접근한다는 뜻. append를 통해 맨 마지막에 붙이므로 맨 마지막에 접근해서 함수 호출
                 db_top += 1
-
+                # crawled_success 리스트에는 [i, tmp, url_name]리스트들이 들어가 있다. 따라서 crawled_success에서 하나씩 for문으로 접근하여 i[0]를 reuslt_success변수에 저장
         return render_template('home.html', result_success=[i[0] for i in crawled_success], result_fail=crawled_fail, result_duplicated=crawled_duplicated)
