@@ -1,9 +1,6 @@
 http://ant.apache.org/
 http://netbeans.apache.org/
 http://drat.apache.org/
-http://netbeans.apache.org/
-fuckyou
+asdfsadf
 http://creadur.apache.org/
-http://hudi.apache.org/
-http://drat.apache.org/
-http://santuario.apache.org/
+http://netbeans.apache.org/
