@@ -25,9 +25,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0408f8c0-e649-4bdb-b8b2-4b2f63d99a3b" name="Default Changelist" comment="쉘 스크립트 작성">
+    <list default="true" id="0408f8c0-e649-4bdb-b8b2-4b2f63d99a3b" name="Default Changelist" comment="쉘 스크립트 작성!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,6 +230,8 @@
       <workItem from="1592378428646" duration="1566000" />
       <workItem from="1592381155133" duration="421000" />
       <workItem from="1592381964737" duration="522000" />
+      <workItem from="1592382685105" duration="190000" />
+      <workItem from="1592382917524" duration="392000" />
     </task>
     <task id="LOCAL-00001" summary="개발명세 추가">
       <created>1591275119768</created>
@@ -260,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592381035482</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="쉘 스크립트 작성!">
+      <created>1592382734486</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592382734486</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,7 +303,8 @@
     <MESSAGE value="테스트" />
     <MESSAGE value="코드 분석" />
     <MESSAGE value="쉘 스크립트 작성" />
-    <option name="LAST_COMMIT_MESSAGE" value="쉘 스크립트 작성" />
+    <MESSAGE value="쉘 스크립트 작성!" />
+    <option name="LAST_COMMIT_MESSAGE" value="쉘 스크립트 작성!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="35" key="#OSP001_Final_09" timestamp="1591843778403">
@@ -395,11 +404,11 @@
       <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="471" y="129" key="RollbackChangesDialog/0.23.1440.814@0.23.1440.814" timestamp="1591854381845" />
-    <state x="340" y="159" key="Vcs.Push.Dialog.v2" timestamp="1592381047149">
-      <screen x="0" y="23" width="1440" height="821" />
+    <state x="340" y="158" key="Vcs.Push.Dialog.v2" timestamp="1592382758914">
+      <screen x="0" y="23" width="1440" height="816" />
     </state>
     <state x="340" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1591947896089" />
-    <state x="340" y="158" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1591851267259" />
+    <state x="340" y="158" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1592382758914" />
     <state x="340" y="159" key="Vcs.Push.Dialog.v2/0.23.1440.821@0.23.1440.821" timestamp="1592381047149" />
     <state x="503" y="365" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592378456894">
       <screen x="0" y="23" width="1440" height="823" />
