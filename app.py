@@ -9,7 +9,6 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import math
 import heapq
-import URLinput
 
 es_host = "127.0.0.1"
 es_port = "9200"
