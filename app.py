@@ -89,6 +89,9 @@ def url_in():
     crawled_fail = [] # crawled_fail 된 url 주소들을 저장하는 리스트.
     crawled_duplicated = set() # 중복된 주소 저장하는 set
     db_top = 1
+    s = "성공"
+    f = "실패"
+    o = "중복"
     msg = "성공"
     if request.method == 'POST': # request 방식이 POST일 경우.
         if 'file' not in request.files: # 만약 file이 없으면.
@@ -134,4 +137,4 @@ def url_in():
                 put_in_es(crawled_success[-1], db_top) # 처음 dp_top값은 1
                 db_top += 1
 
-        return render_template('home.html', result_success=[i[0] for i in crawled_success], result_fail=crawled_fail, result_duplicated=crawled_duplicated)
+        return render_template('home.html', result_success=[i[0] for i in crawled_success], result_fail=crawled_fail, result_duplicated=crawled_duplicated, s=s, f=f, o=o)

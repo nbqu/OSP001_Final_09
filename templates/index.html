@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+{% extends 'home.html' %}
+{% block content %}
+    성공
+    {{ s }}
+    {% for x in result_success %}
+        {{ x }}
+    {% endfor %}
+    {{ f }}
+    실패
+    {% for y in result_fail %}
+        {{ y }}
+    {% endfor %}
+    {{ o }}
+    중복
+    {% for z in result_duplicated %}
+        {{ z }}
+    {% endfor %}
+{% endblock %}
