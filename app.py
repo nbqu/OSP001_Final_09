@@ -81,7 +81,7 @@ def make_vector(URL):
 
 def get_cosine(URL, sucessURL): # crawed_sucess 리스트를 가져온다. -> sucessURL
     v = make_vector(URL) # 해당 URL과 가장 유사한 url 3개를 찾을 건데 리스트 v에는 현재 URL이 들어가 있음.
-    print(URL,"=>" ,v)
+    print(URL,"=>>" ,v)
     for i in sucessURL: # sucessURL에는 [url주소, beatifulsoup에서 크롤링한 객체, url이름]리스트 들이 저장되어 있음.
         v1 = None
         url_address = None
@@ -91,6 +91,7 @@ def get_cosine(URL, sucessURL): # crawed_sucess 리스트를 가져온다. -> su
             v1 = make_vector(i[0]) # i[0]에는 url주소가 들어간다.
             url_address = i[0]
             print(url_address,"=>", v1)
+
 
 
 
