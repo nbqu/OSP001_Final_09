@@ -1,6 +1,10 @@
 http://ant.apache.org/
-http://netbeans.apache.org/
 http://drat.apache.org/
-asdfsadf
 http://creadur.apache.org/
 http://netbeans.apache.org/
+http://attic.apache.org/
+http://cordova.apache.org/
+http://reef.apache.org/
+http://uima.apache.org/
+http://airflow.apache.org/
+http://griffin.apache.org/
