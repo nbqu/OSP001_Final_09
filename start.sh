@@ -18,6 +18,7 @@ pip3 install Flask
 pip3 install requests
 pip3 install bs4
 pip3 install elasticsearch
+pip3 install numpy
 
 export FLASK_APP=app.py
 

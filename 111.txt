@@ -1,6 +1,10 @@
 http://ant.apache.org/
 http://netbeans.apache.org/
 http://drat.apache.org/
-asdfsadf
 http://creadur.apache.org/
-http://netbeans.apache.org/
+http://hawq.apache.org/
+http://iceberg.apache.org/
+http://flex.apache.org/
+http://unomi.apache.org/
+http://gora.apache.org/
+http://gump.apache.org/

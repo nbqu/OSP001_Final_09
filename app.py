@@ -9,6 +9,7 @@ from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import math
 import heapq
+import numpy
 
 es_host = "127.0.0.1"
 es_port = "9200"
@@ -52,14 +53,16 @@ def update_df(words):
         es.index(index='df', doc_type='mola', id=1, body={'words': words, 'df': [1 for i in range(len(words))]})
 
 def make_vector(URL):
-    print(URL)
-    URL_data = es.search(index='web', doc_type='word', body={'query': {'match': {"url": URL}}}) # 엘라스틱서치에서 URL과 매치하는 게 있는 지 검색.
+    #print(URL)
+    query = {'query': {'match': {"url": URL}}}
+    URL_data = es.search(index='web', doc_type='word', body=query)# 엘라스틱서치에서 URL과 매치하는 게 있는 지 검색.
+    print(URL_data)
     df = es.get_source('df', 1, doc_type='mola') # df에는 모든 단어들이 들어가 있음.
 
     URL_source = URL_data['hits']['hits'][0]['_source']
-    print(URL_source)
+    #print(URL_source)
     v = URL_source['words'] # 해당 URL(이 url에서 유사도 분석 버튼 눌렀을 때 )에 있는 단어리스트들을 검색해서 가져오고 리스트에 저장.
-    print(v)
+   # print(v)
     z = URL_source['freq'] # 해당 URL에 있는 단어들의 빈도수를 가져오고 리스트에 저장.
     Allwords = df['words'] # 모든 단어들이 들어있는 리스트
 
@@ -77,9 +80,11 @@ def make_vector(URL):
     return url_vector
 
 def get_cosine(URL, sucessURL): # crawed_sucess 리스트를 가져온다. -> sucessURL
-    v = make_vector((URL)) # 해당 URL과 가장 유사한 url 3개를 찾을 건데 리스트 v에는 현재 URL이 들어가 있음.
-    print(URL, v)
+    v = make_vector(URL) # 해당 URL과 가장 유사한 url 3개를 찾을 건데 리스트 v에는 현재 URL이 들어가 있음.
+    print(URL,"=>" ,v)
     for i in sucessURL: # sucessURL에는 [url주소, beatifulsoup에서 크롤링한 객체, url이름]리스트 들이 저장되어 있음.
+        v1 = None
+        url_address = None
         if URL in i: # 현재 URL이 sucessURL 리스트 안의 리스트에 있다면 continue (즉, 자기자신은 또 벡터값 안 구해줄려고)
             continue
         else: # 자기 자신을 제외한 url에 대해 벡터 값을 계산한다.
@@ -211,7 +216,7 @@ def url_in():
                 # crawled_success 리스트에는 [i, tmp, url_name]리스트들이 들어가 있다. 따라서 crawled_success에서 하나씩 for문으로 접근하여 i[0]를 reuslt_success변수에 저장
         print(get_tfidf('http://ant.apache.org/', db_top - 1))
 
-        #make_vector('http://netbeans.apache.org/')
+
         get_cosine('http://drat.apache.org/', crawled_success)
 
         return render_template('home.html', result_success=[i[0] for i in crawled_success], result_fail=crawled_fail,
