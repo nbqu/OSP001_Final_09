@@ -1,20 +1,68 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-
 <html>
- <head>
-  <title>Opensource</title>
- </head>
- <body>
-  <form method="POST" action="#">
-   <p>Enter the Url</p>
-   <input name="url" type="text"/>
-   <button type="submit"> Enter</button>
-  </form>
+  <head>
+    <meta charset="utf-8">
+    <meta name="Opensource Team Project" content="8팀의 오픈소스 팀 과제입니다.">
+    <title>Opensource Team Project</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+      .Enter-text {
+        background: yellow;
+      }
+      .Title {
+        text-align: left;
+        font-weight: 500;
+        color: #396a93;
+        font-size: 30px;
+      }
+      .Table {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Enter-text">
+      Enter the URL
+      <input name="url" type="text"/>
+      <button type="submit"> Enter</button>
+    </div>
 
-  <form method="POST" action="#">
-   <p>Enter the FILE NAME</p>
-   <input name="file" type="text"/>
-   <button type="submit"> Enter</button>
-  </form>
- </body>
+    <div class="Enter-filename">
+      <form method="POST" action="/fileUpload" enctype="multipart/form-data">
+      Enter the FILENAME
+      <input name="file" type="file"/>
+       <button type="submit"> Enter</button>
+     </form>
+    </div>
+    <div class="Title">
+      Open Source Project Analysis List
+    </div>
+    <div class="Table">
+      <table border=1>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>URL</th>
+            <th>전체 단어 수</th>
+            <th>처리시간</th>
+            <th>버튼</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>예시</td>
+            <td>예시</td>
+            <td>예시</td>
+            <td>예시</td>
+            <td><a href="URL" onclick="window.open(this.href, '_blank', 'width=700px,height=600px,toolbars=no,scrollbars=no'); return false;">팝업 테스트</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

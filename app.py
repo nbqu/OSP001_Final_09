@@ -40,29 +40,66 @@ def update_df(words):
     origin = None
     try:
         origin = es.get_source('df', 1, doc_type='mola')
-        for i in words:
-            if i in origin['words']:
-                origin['df'][origin['words'].index(i)] += 1
-            else:
-                origin['words'].append(i)
-                origin['df'].append(1)
-        es.index(index='df', id=1, doc_type='mola', body=origin)
+        for i in words: # words 리스트에서 하나씩 for문 돌리면서
+            if i in origin['words']: # 만약 origin['words']에 i단어가 있으면
+                origin['df'][origin['words'].index(i)] += 1 # +1해준다 ?!
+            else: # origin['words']에 해당 i 단어가 없다면
+                origin['words'].append(i) # origin['words']에 i단어를 추가 해준다!
+                origin['df'].append(1) # 그리고 1을 추가한다! (단어가 하나 있으니깐..!)
+        es.index(index='df', id=1, doc_type='mola', body=origin) # index = 'df', doc_type = 'mola', id = 1에 저장!
 
     except elasticsearch.exceptions.NotFoundError:
         es.index(index='df', doc_type='mola', id=1, body={'words': words, 'df': [1 for i in range(len(words))]})
 
+def make_vector(URL):
+    print(URL)
+    URL_data = es.search(index='web', doc_type='word', body={'query': {'match': {"url": URL}}}) # 엘라스틱서치에서 URL과 매치하는 게 있는 지 검색.
+    df = es.get_source('df', 1, doc_type='mola') # df에는 모든 단어들이 들어가 있음.
+
+    URL_source = URL_data['hits']['hits'][0]['_source']
+    print(URL_source)
+    v = URL_source['words'] # 해당 URL(이 url에서 유사도 분석 버튼 눌렀을 때 )에 있는 단어리스트들을 검색해서 가져오고 리스트에 저장.
+    print(v)
+    z = URL_source['freq'] # 해당 URL에 있는 단어들의 빈도수를 가져오고 리스트에 저장.
+    Allwords = df['words'] # 모든 단어들이 들어있는 리스트
+
+    # v = [a,b,c,d] -> 해당 url에 있는 단어 리스트
+    # z = [3,2,1,4] -> 해당 url에 있는 단어 리스트의 빈도수 즉, a가 3번, b가 2번, c가 1번, d가 4번 나왔다는 뜻임.
+    url_vector = [] # url 벡터 값을 저장할 리스트
+
+    for i in Allwords: # 모든 단어들에서 하나씩 for문으로 비교할 것이다.
+        if i in v: # 만약 단어 i가 v(해당 url에 있는 단어들)리스트에 있다면..!
+            idx = v.index(i) # v 리스트에서 단어 i의 위치를 찾고 idx에 저장해준다.
+            url_vector.append(z[idx]) # z[idx]는 url에서 단어 i의 빈도수를 저장하고 있다.
+        else: # 만약 단어 i가 v(해당 url에 있는 단어들)리스트에 없다면..!
+            url_vector.append(0)
+
+    return url_vector
+
+def get_cosine(URL, sucessURL): # crawed_sucess 리스트를 가져온다. -> sucessURL
+    v = make_vector((URL)) # 해당 URL과 가장 유사한 url 3개를 찾을 건데 리스트 v에는 현재 URL이 들어가 있음.
+    print(URL, v)
+    for i in sucessURL: # sucessURL에는 [url주소, beatifulsoup에서 크롤링한 객체, url이름]리스트 들이 저장되어 있음.
+        if URL in i: # 현재 URL이 sucessURL 리스트 안의 리스트에 있다면 continue (즉, 자기자신은 또 벡터값 안 구해줄려고)
+            continue
+        else: # 자기 자신을 제외한 url에 대해 벡터 값을 계산한다.
+            v1 = make_vector(i[0]) # i[0]에는 url주소가 들어간다.
+            url_address = i[0]
+            print(url_address,"=>", v1)
+
+
 
 def get_tfidf(URL, top):
     arr = []
-    URL_data = es.search(index='web', doc_type='word', body={'query': {'match': {"url": URL}}})
-    df = es.get_source('df', 1, doc_type='mola')
+    URL_data = es.search(index='web', doc_type='word', body={'query': {'match': {"url": URL}}}) # 엘라스틱서치에서 URL과 매치하는 게 있는 지 검색.
+    df = es.get_source('df', 1, doc_type='mola') # df에는 index = df, doc_type= 'mola', id = 1인 엘라스틱서치에 저장한 것을 가져온다.
     URL_source = URL_data['hits']['hits'][0]['_source']
     for i in range(len(URL_source['words'])):
         idx = df['words'].index(URL_source['words'][i])
         tfidf = URL_source['tf'][i] * math.log10(top / df['df'][idx])
         heapq.heappush(arr, (-tfidf, (URL_source['words'][i], tfidf)))
 
-    return [heapq.heappop(arr)[1] for i in range(3)]
+    return [heapq.heappop(arr)[1] for i in range(10)]
 
 
 def check_duplicate(url_name):  # url_name이 겹치는 지 확인해 주는 함수.
@@ -98,12 +135,12 @@ def put_in_es(content, idx):
     tf = []
 
     word_list = sorted(d.items(), key=lambda x: x[1], reverse=True)  # word_list에 dictionary의 값을 기준으로 큰것부터 차례로 정렬
-    freq_sum = sum(d.values())
+    freq_sum = sum(d.values()) # d(딕션너리)의 values를 다 더해서 freq_sum에 저장한다. (즉, 해당 url에 전체 단어 개수를 저장)
     for i in word_list:
         words.append(i[0])  # 단어들을 words 리스트에 저장.
         freq.append(i[1])  # 빈도수들을 freq 리스트에 저장.
-        tf.append(i[1] / freq_sum)
-    update_df(words)
+        tf.append(i[1] / freq_sum) # tf "url에 i[1] 단어가 나오는 개수 / url의 전체 단어 개수" 를 저장함.
+    update_df(words)  # word 리스트를 가지고 updated_df 함수 호출
     e1 = {"url": content[0], "url_name": content[2], "words": words, "freq": freq, "tf": tf}
     es.index(index='web', doc_type='word', id=idx,
              body=e1)  # index = web, type = word, id = 1부터 2,3... elasticsearch에 저장.
@@ -173,5 +210,9 @@ def url_in():
                 db_top += 1
                 # crawled_success 리스트에는 [i, tmp, url_name]리스트들이 들어가 있다. 따라서 crawled_success에서 하나씩 for문으로 접근하여 i[0]를 reuslt_success변수에 저장
         print(get_tfidf('http://ant.apache.org/', db_top - 1))
+
+        #make_vector('http://netbeans.apache.org/')
+        get_cosine('http://drat.apache.org/', crawled_success)
+
         return render_template('home.html', result_success=[i[0] for i in crawled_success], result_fail=crawled_fail,
                                result_duplicated=crawled_duplicated)
