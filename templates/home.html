@@ -1,20 +1,119 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 <html>
- <head>
-  <title>Opensource</title>
- </head>
- <body>
-  <form method="POST" action="/fileUpload" enctype="multipart/form-data">
-   <p>Enter the Url</p>
-   <input name="url" type="text"/>
-   <button type="submit"> Enter</button>
-   <p>Enter the FILE NAME</p>
-   <input name="file" type="file"/>
-   <button type="submit"> Enter</button>
-  </form>
- {{ result_success }}<br>
- {{ result_fail }}<br>
- {{ result_duplicated }}
- </body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="Opensource Team Project" content="9팀의 오픈소스 팀 과제입니다.">
+    <title>Opensource Team 9 Project</title>
+      <link href="style.css" rel="stylesheet" type="text/css" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+      .Title {
+        text-align: left;
+        font-weight: 500;
+        color: #396a93;
+        font-size: 30px;
+      }
+      .Table {
+        margin: auto;
+        width: 50%;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Enter">
+       <form method="POST" action="/fileUpload" enctype="multipart/form-data">
+           <div class="Title">
+               Enter the URL<br>
+           </div>
+
+           <input name="url" type="text"/>
+           <button type="submit"> Enter</button>
+
+           <div class="Title">
+               Enter the FILENAME<br>
+           </div>
+
+           <input name="file" type="file"/>
+           <button type="submit"> Enter</button>
+       </form>
+    </div>
+
+    <div class="Title">
+      Open Source Project Analysis List
+    </div>
+
+    {% if result_success|length != 0 %}
+        <div class="Table">
+        <table border=1>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>URL</th>
+            <th>전체 단어 수</th>
+            <th>처리시간</th>
+            <th>버튼</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in range(0, result_success|length) %}
+            <tr>
+                <td>{% print(i + 1) %}</td>
+                <td>이름</td>
+                <td>{% print(result_success[i]) %}</td>
+                <td>예시</td>
+                <td>예시</td>
+                <td>
+
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">tf-idf분석</button>
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">tf-idf</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {% print(myfunction(result_success[i], db_top)) %}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">cosine분석</button>
+                    <div class="modal fade" id="myModal2" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">tf-idf</h4>
+                                </div>
+                                <div class="modal-body">
+                                    {% print(myfunction2(result_success[i], crawled_success)) %}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+
+    <script src="script.js"></script>
+  </body>
 </html>
+
+

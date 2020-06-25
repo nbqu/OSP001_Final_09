@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+ <head>
+  <title>Opensource</title>
+ </head>
+ <body>
+  <form method="POST" action="/fileUpload" enctype="multipart/form-data">
+   <p>Enter the Url</p>
+   <input name="url" type="text"/>
+   <button type="submit"> Enter</button>
+   <p>Enter the FILE NAME</p>
+   <input name="file" type="file"/>
+   <button type="submit"> Enter</button>
+  </form>
+  {% print("------------------------------------------------------------------") %}<br>
+  {% if result_success|length != 0 %}
+      {% print("성공") %}<br>
+      {% for i in result_success %}
+          {% print(i) %}<br>
+      {% endfor %}
+  {% endif %}
+
+ {% if result_fail|length != 0 %}
+     {% print("실패") %} <br>
+     {% for j in result_fail %}
+         {% print(j) %}<br>
+     {% endfor %}
+  {% endif %}
+ {% if result_duplicated|length != 0 %}
+     {% print("중복") %}<br>
+     {% for k in result_duplicated %}
+         {% print(k) %}<br>
+     {% endfor %}
+  {% endif %}
+  {{ tfidf }} <br><br>
+ {{ cosine }}<br>
+ </body>
+</html>
+
