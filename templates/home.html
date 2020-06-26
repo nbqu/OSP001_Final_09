@@ -11,15 +11,16 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
       .Title {
-        text-align: left;
-        font-weight: 500;
-        color: #396a93;
-        font-size: 30px;
+          text-align: left;
+          font-weight: 500;
+          color: #396a93;
+          font-size: 30px;
       }
-      .Table {
-        margin: auto;
-        width: 50%;
-        padding: 10px;
+      table {
+          margin: auto;
+          width: 80%;
+          padding: 10px;
+          height: 80%;
       }
     </style>
   </head>
@@ -27,14 +28,15 @@
     <div class="Enter">
        <form method="POST" action="/fileUpload" enctype="multipart/form-data">
            <div class="Title">
-               Enter the URL<br>
+               Enter the URL
            </div>
 
            <input name="url" type="text"/>
            <button type="submit"> Enter</button>
+           <br><br>
 
            <div class="Title">
-               Enter the FILENAME<br>
+               Enter the FILE NAME
            </div>
 
            <input name="file" type="file"/>
@@ -42,15 +44,15 @@
        </form>
     </div>
 
-    <div class="Title">
-      Open Source Project Analysis List
-    </div>
-
     {% if result_success|length != 0 %}
+        <div class="Title">
+            Open Source Project Analysis List
+        </div>
+
         <div class="Table">
-        <table border=1>
+        <table>
         <thead>
-          <tr>
+          <tr bgcolor="#ffe4c4">
             <th>번호</th>
             <th>이름</th>
             <th>URL</th>
@@ -61,16 +63,19 @@
         </thead>
         <tbody>
         {% for i in range(0, result_success|length) %}
-            <tr>
+            {% if i % 2 == 0 %}
+                <tr bgcolor="beige">
+            {% else %}
+                <tr bgcolor="gainsboro">
+            {% endif %}
                 <td>{% print(i + 1) %}</td>
                 <td>이름</td>
                 <td>{% print(result_success[i]) %}</td>
                 <td>예시</td>
                 <td>예시</td>
                 <td>
-
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">tf-idf분석</button>
-                    <div class="modal fade" id="myModal" role="dialog">
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal{{ i }}">tf-idf분석</button>
+                    <div class="modal fade" id="myModal{{ i }}" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -87,13 +92,13 @@
                         </div>
                     </div>
 
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">cosine분석</button>
-                    <div class="modal fade" id="myModal2" role="dialog">
+                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2{{ i }}">cosine분석</button>
+                    <div class="modal fade" id="myModal2{{ i }}" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">tf-idf</h4>
+                                    <h4 class="modal-title">cosine</h4>
                                 </div>
                                 <div class="modal-body">
                                     {% print(myfunction2(result_success[i], crawled_success)) %}
@@ -111,7 +116,6 @@
       </table>
     </div>
     {% endif %}
-
     <script src="script.js"></script>
   </body>
 </html>
