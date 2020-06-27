@@ -20,12 +20,19 @@
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:seunggyu" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="0408f8c0-e649-4bdb-b8b2-4b2f63d99a3b" name="Default Changelist" comment="cosine함수" />
+=======
+    <list default="true" id="0408f8c0-e649-4bdb-b8b2-4b2f63d99a3b" name="Default Changelist" comment="cosine 유사도 함수 생성">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+    </list>
+>>>>>>> master
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +42,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML4 File" />
       </list>
     </option>
   </component>
@@ -52,6 +60,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
+=======
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML4 File" />
+>>>>>>> master
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -63,6 +76,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+<<<<<<< HEAD
+=======
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
+>>>>>>> master
   </component>
   <component name="RunManager" selected="Flask server.Flask (app.py)">
     <configuration name="OSP001_Final_09" type="PythonConfigurationType" factoryName="Python">
@@ -241,6 +259,11 @@
       <workItem from="1592537992246" duration="4000" />
       <workItem from="1592579365084" duration="2562000" />
       <workItem from="1592582890133" duration="4340000" />
+<<<<<<< HEAD
+=======
+      <workItem from="1592652229159" duration="5568000" />
+      <workItem from="1593077753772" duration="6925000" />
+>>>>>>> master
     </task>
     <task id="LOCAL-00001" summary="개발명세 추가">
       <created>1591275119768</created>
@@ -305,12 +328,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592498221107</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00010" summary="cosine함수">
       <created>1592666240242</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
       <updated>1592666240242</updated>
+=======
+    <task id="LOCAL-00010" summary="홈페이지 개발2">
+      <created>1593077912015</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1593077912015</updated>
+>>>>>>> master
     </task>
     <option name="localTasksCounter" value="11" />
     <servers />
@@ -329,7 +361,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="seunggyu" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -350,9 +382,14 @@
     <MESSAGE value="쉘 스크립트 작성!" />
     <MESSAGE value="쉘 스크립트 작성!!" />
     <MESSAGE value="cosine 유사도 함수 생성" />
+<<<<<<< HEAD
     <MESSAGE value="cosine 유사도 함수 생" />
     <MESSAGE value="cosine함수" />
     <option name="LAST_COMMIT_MESSAGE" value="cosine함수" />
+=======
+    <MESSAGE value="홈페이지 개발2" />
+    <option name="LAST_COMMIT_MESSAGE" value="홈페이지 개발2" />
+>>>>>>> master
   </component>
   <component name="WindowStateProjectService">
     <state x="426" y="35" key="#OSP001_Final_09" timestamp="1591843778403">
@@ -380,6 +417,7 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="503" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1591277629363" />
+<<<<<<< HEAD
     <state x="144" y="94" key="DiffContextDialog" timestamp="1592665329793">
       <screen x="0" y="23" width="1440" height="814" />
     </state>
@@ -389,6 +427,17 @@
       <screen x="0" y="23" width="1440" height="809" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591707649967" />
+=======
+    <state x="144" y="78" width="1152" height="720" key="DiffContextDialog" timestamp="1593078642707">
+      <screen x="0" y="23" width="1440" height="812" />
+    </state>
+    <state x="144" y="78" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1591268633437" />
+    <state x="144" y="78" width="1152" height="720" key="DiffContextDialog/0.23.1440.812@0.23.1440.812" timestamp="1593078642707" />
+    <state width="1398" height="143" key="GridCell.Tab.0.bottom" timestamp="1593155081205">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="143" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1593155081205" />
+>>>>>>> master
     <state width="1316" height="211" key="GridCell.Tab.0.bottom/0.23.1440.809@0.23.1440.809" timestamp="1592587302735" />
     <state width="1316" height="129" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1592497773567" />
     <state width="557" height="129" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1592394315871" />
@@ -397,10 +446,17 @@
     <state width="1316" height="129" key="GridCell.Tab.0.bottom/0.23.1440.821@0.23.1440.821" timestamp="1592471397803" />
     <state width="1316" height="129" key="GridCell.Tab.0.bottom/0.23.1440.822@0.23.1440.822" timestamp="1592465439585" />
     <state width="1348" height="129" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1592380588729" />
+<<<<<<< HEAD
     <state width="1316" height="211" key="GridCell.Tab.0.center" timestamp="1592587302734">
       <screen x="0" y="23" width="1440" height="809" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591707649965" />
+=======
+    <state width="1398" height="143" key="GridCell.Tab.0.center" timestamp="1593155081204">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="143" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1593155081204" />
+>>>>>>> master
     <state width="1316" height="211" key="GridCell.Tab.0.center/0.23.1440.809@0.23.1440.809" timestamp="1592587302734" />
     <state width="1316" height="129" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1592497773566" />
     <state width="557" height="129" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1592394315870" />
@@ -409,10 +465,17 @@
     <state width="1316" height="129" key="GridCell.Tab.0.center/0.23.1440.821@0.23.1440.821" timestamp="1592471397802" />
     <state width="1316" height="129" key="GridCell.Tab.0.center/0.23.1440.822@0.23.1440.822" timestamp="1592465439584" />
     <state width="1348" height="129" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1592380588728" />
+<<<<<<< HEAD
     <state width="1316" height="211" key="GridCell.Tab.0.left" timestamp="1592587302734">
       <screen x="0" y="23" width="1440" height="809" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591707649965" />
+=======
+    <state width="1398" height="143" key="GridCell.Tab.0.left" timestamp="1593155081203">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="143" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1593155081203" />
+>>>>>>> master
     <state width="1316" height="211" key="GridCell.Tab.0.left/0.23.1440.809@0.23.1440.809" timestamp="1592587302734" />
     <state width="1316" height="129" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1592497773566" />
     <state width="557" height="129" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1592394315869" />
@@ -421,10 +484,17 @@
     <state width="1316" height="129" key="GridCell.Tab.0.left/0.23.1440.821@0.23.1440.821" timestamp="1592471397802" />
     <state width="1316" height="129" key="GridCell.Tab.0.left/0.23.1440.822@0.23.1440.822" timestamp="1592465439584" />
     <state width="1348" height="129" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1592380588728" />
+<<<<<<< HEAD
     <state width="1316" height="211" key="GridCell.Tab.0.right" timestamp="1592587302735">
       <screen x="0" y="23" width="1440" height="809" />
     </state>
     <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591707649966" />
+=======
+    <state width="1398" height="143" key="GridCell.Tab.0.right" timestamp="1593155081204">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="143" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1593155081204" />
+>>>>>>> master
     <state width="1316" height="211" key="GridCell.Tab.0.right/0.23.1440.809@0.23.1440.809" timestamp="1592587302735" />
     <state width="1316" height="129" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1592497773567" />
     <state width="557" height="129" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1592394315871" />
@@ -461,9 +531,15 @@
       <screen x="0" y="23" width="1440" height="814" />
     </state>
     <state x="471" y="129" key="RollbackChangesDialog/0.23.1440.814@0.23.1440.814" timestamp="1591854381845" />
+<<<<<<< HEAD
     <state x="340" y="158" key="Vcs.Push.Dialog.v2" timestamp="1592666249942">
       <screen x="0" y="23" width="1440" height="814" />
+=======
+    <state x="340" y="149" key="Vcs.Push.Dialog.v2" timestamp="1593078001708">
+      <screen x="0" y="0" width="1440" height="900" />
+>>>>>>> master
     </state>
+    <state x="340" y="149" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1593078001708" />
     <state x="340" y="157" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1592498234904" />
     <state x="340" y="158" key="Vcs.Push.Dialog.v2/0.23.1440.814@0.23.1440.814" timestamp="1592666249942" />
     <state x="340" y="158" key="Vcs.Push.Dialog.v2/0.23.1440.816@0.23.1440.816" timestamp="1592383766375" />
@@ -511,5 +587,9 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/OSP001_Final_09$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1592587400427" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/OSP001_Final_09$testfile.coverage" NAME="testfile Coverage Results" MODIFIED="1592052569741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+<<<<<<< HEAD
+=======
+    <SUITE FILE_PATH="coverage/OSP001_Final_09$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1593155157596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+>>>>>>> master
   </component>
 </project>

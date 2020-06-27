@@ -209,7 +209,13 @@ def url_in():
                 db_top += 1
 
         print(get_tfidf('http://ant.apache.org/', db_top - 1))
-        print(get_cosine('http://drat.apache.org/', crawled_success))
+        print(get_cosine('http://ant.apache.org/', crawled_success))
+        result_success=[i[0] for i in crawled_success]
 
+<<<<<<< HEAD
         return render_template('home.html', result_success=[i[0] for i in crawled_success], result_fail=crawled_fail,
                                result_duplicated=crawled_duplicated)
+=======
+        return render_template('home.html', result_success=result_success, result_fail=crawled_fail, db_top=db_top-1, myfunction=get_tfidf,
+                               result_duplicated=crawled_duplicated, crawled_success=crawled_success, myfunction2=get_cosine)
+>>>>>>> master
