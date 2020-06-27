@@ -9,6 +9,7 @@ from werkzeug.utils import secure_filename
 import math
 import heapq
 import numpy
+import time
 
 es_host = "127.0.0.1"
 es_port = "9200"
@@ -21,9 +22,13 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 es = elasticsearch.Elasticsearch([{'host': es_host, 'port': es_port}], timeout=30)
 
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+def get_sum_list(top):
+    arr = []
+    for i in range(1, top):
+        a = es.get_source('web', i, doc_type='word')
+        arr.append(a['total_word'])
+
+    return arr
 
 
 def crawling(url):
@@ -73,6 +78,7 @@ def make_vector(URL):
 
 
 def get_cosine(URL, sucessURL):
+    start = time.time()
     top3_res = []
     v1 = make_vector(URL)
     for i in sucessURL:
@@ -84,10 +90,14 @@ def get_cosine(URL, sucessURL):
             cos_simil = dotpro / (numpy.linalg.norm(v1) * numpy.linalg.norm(v2))
             heapq.heappush(top3_res, (-cos_simil, (i[0], cos_simil)))
 
-    return [heapq.heappop(top3_res)[1] for i in range(3)]
+    if len(top3_res) >= 3:
+        return time.time() - start, [heapq.heappop(top3_res)[1] for i in range(3)]
+    else:
+        return time.time() - start, [heapq.heappop(top3_res)[1] for i in range(len(top3_res))]
 
 
 def get_tfidf(URL, top):
+    start = time.time()
     arr = []
     URL_data = es.search(index='web', doc_type='word',
                          body={'query': {'match': {"url": URL}}})  # 엘라스틱서치에서 URL과 매치하는 게 있는 지 검색.
@@ -98,7 +108,7 @@ def get_tfidf(URL, top):
         tfidf = URL_source['tf'][i] * math.log10(top / df['df'][idx])
         heapq.heappush(arr, (-tfidf, (URL_source['words'][i], tfidf)))
 
-    return [heapq.heappop(arr)[1] for i in range(10)]
+    return time.time() - start, [heapq.heappop(arr)[1] for i in range(10)]
 
 
 def check_duplicate(url_name):  # url_name이 겹치는 지 확인해 주는 함수.
@@ -140,7 +150,7 @@ def put_in_es(content, idx):
         freq.append(i[1])  # 빈도수들을 freq 리스트에 저장.
         tf.append(i[1] / freq_sum)  # tf "url에 i[1] 단어가 나오는 개수 / url의 전체 단어 개수" 를 저장함.
     update_df(words)  # word 리스트를 가지고 updated_df 함수 호출
-    e1 = {"url": content[0], "url_name": content[2], "words": words, "freq": freq, "tf": tf}
+    e1 = {"url": content[0], "url_name": content[2], "words": words, "freq": freq, "tf": tf, "total_word": freq_sum}
     es.index(index='web', doc_type='word', id=idx,
              body=e1)  # index = web, type = word, id = 1부터 2,3... elasticsearch에 저장.
 
@@ -208,9 +218,8 @@ def url_in():
                           db_top)
                 db_top += 1
 
-        print(get_tfidf('http://ant.apache.org/', db_top - 1))
-        print(get_cosine('http://ant.apache.org/', crawled_success))
         result_success=[i[0] for i in crawled_success]
-
+        word = [j[2] for j in crawled_success]
         return render_template('home.html', result_success=result_success, result_fail=crawled_fail, db_top=db_top-1, myfunction=get_tfidf,
-                               result_duplicated=crawled_duplicated, crawled_success=crawled_success, myfunction2=get_cosine)
+                               result_duplicated=crawled_duplicated, crawled_success=crawled_success, myfunction2=get_cosine, freq_sum=get_sum_list(db_top), word=word)
+
