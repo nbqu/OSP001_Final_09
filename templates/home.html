@@ -25,28 +25,51 @@
     </style>
   </head>
   <body>
+
     <div class="Enter">
        <form method="POST" action="/fileUpload" enctype="multipart/form-data">
            <div class="Title">
-               Enter the URL
+               <p align="center"> Enter the URL(구현못했습니다 죄송합니다) </p>
            </div>
-
+                <p align="center">
            <input name="url" type="text"/>
            <button type="submit"> Enter</button>
+                </p>
            <br><br>
 
            <div class="Title">
-               Enter the FILE NAME
+               <p align="center"> Enter the FILE NAME </p>
            </div>
-
+                <p align="center">
            <input name="file" type="file"/>
-           <button type="submit"> Enter</button>
+                    <button type="submit"> Enter</button> </p>
        </form>
     </div>
+<hr>
+      {% if result_success|length != 0 %}
+          <h5>성공</h5><br>
+      {% for i in result_success %}
+          {% print(i) %}<br>
+      {% endfor %}
+  {% endif %}
+
+ {% if result_fail|length != 0 %}
+     <h5>실패</h5> <br>
+     {% for j in result_fail %}
+         {% print(j) %}<br>
+     {% endfor %}
+  {% endif %}
+ {% if result_duplicated|length != 0 %}
+     <h5>중</h5><br>
+     {% for k in result_duplicated %}
+         {% print(k) %}<br>
+     {% endfor %}
+     <hr>
+  {% endif %}
 
     {% if result_success|length != 0 %}
         <div class="Title">
-            Open Source Project Analysis List
+            <p align="center"> Open Source Project Analysis List </p>
         </div>
 
         <div class="Table">
@@ -57,7 +80,7 @@
             <th>이름</th>
             <th>URL</th>
             <th>전체 단어 수</th>
-            <th>처리시간</th>
+
             <th>버튼</th>
           </tr>
         </thead>
@@ -69,10 +92,9 @@
                 <tr bgcolor="gainsboro">
             {% endif %}
                 <td>{% print(i + 1) %}</td>
-                <td>이름</td>
+                <td>{% print(word[i]) %}</td>
                 <td>{% print(result_success[i]) %}</td>
-                <td>예시</td>
-                <td>예시</td>
+                <td>{% print(freq_sum[i]) %}</td>
                 <td>
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal{{ i }}">tf-idf분석</button>
                     <div class="modal fade" id="myModal{{ i }}" role="dialog">
@@ -83,7 +105,8 @@
                                     <h4 class="modal-title">tf-idf</h4>
                                 </div>
                                 <div class="modal-body">
-                                    {% print(myfunction(result_success[i], db_top)) %}
+                                    처리시간 : {% print("%.2f" % myfunction(result_success[i], db_top)[0])  %}<br>
+                                    {% print(myfunction(result_success[i], db_top)[1]) %}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -101,7 +124,8 @@
                                     <h4 class="modal-title">cosine</h4>
                                 </div>
                                 <div class="modal-body">
-                                    {% print(myfunction2(result_success[i], crawled_success)) %}
+                                    처리시간 : {% print("%.2f" % myfunction2(result_success[i], crawled_success)[0]) %}<br>
+                                    {% print(myfunction2(result_success[i], crawled_success)[1]) %}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
